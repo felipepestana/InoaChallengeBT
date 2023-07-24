@@ -1,3 +1,4 @@
+# Inoa Challenge BT - Stock Asset Monitor
 ## Projeto
 
 Esse sistema foi construído visando atender aos requisitos propostos no desafio BT da Inoa. Seu objetivo é ser uma aplicação de console capaz de monitorar de forma contínua um determinado ativo da B3 e avisar via e-mail caso a sua cotação varie para além de um determinado intervalo de valores, aconselhando a compra caso seu valor caia abaixo de um determinado número ou a venda caso suba acima de outro. 
