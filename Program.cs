@@ -7,6 +7,7 @@ namespace Inoa
         private static MonitorService? Monitor;
         private static int SleepTime;
         private static int MaxErrorsToAbort;
+        private static bool ResetMaxErrors;
 
         static async Task Main(string[] args)
         {
@@ -40,6 +41,10 @@ namespace Inoa
                         return;
                     }
                 }
+                else if(result && ResetMaxErrors)
+                {
+                    countErrors = 0;
+                }
 
                 await Task.Delay(SleepTime * 1000);
             } while(true);
@@ -57,6 +62,7 @@ namespace Inoa
                 SleepTime = 60;
 
             MaxErrorsToAbort = config.GetValue<int>("MaxErrorsToAbort");
+            ResetMaxErrors = config.GetValue<bool>("ResetMaxErrors");
 
             MailConfig mailConfig = new MailConfig(config.GetSection("MailConfig"));
             MailService mailService = new MailService(mailConfig);
